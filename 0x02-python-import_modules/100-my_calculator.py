@@ -3,11 +3,11 @@ if __name__ == "__main__":
     from calculator_1 import add, sub, mul, div
     import sys
 
+    operand = ['+', '-', '*', '/']
     if len(sys.argv) == 1:
         print("Usage: ./100-my_calculator.py <a> <operator> <b>", end="\n")
         exit(1)
-    elif sys.argv[2] != '+' and sys.argv[2] != '-' \
-            and sys.argv[2] != '*' and sys.argv[2] != '/':
+    elif sys.argv[2] not in operand:
         print("Unknown operator. Available operators: +, -, * and /", end="\n")
         exit(1)
     else:
@@ -21,4 +21,4 @@ if __name__ == "__main__":
         elif sys.argv[2] == '*':
             print("{} * {} = {}".format(a, b, mul(a, b)))
         elif sys.argv[2] == '/':
-            print("{} / {} = {}".format(a, b, int(div(a, b))))
+            print("{} / {} = {}".format(a, b, div(a, b)))
