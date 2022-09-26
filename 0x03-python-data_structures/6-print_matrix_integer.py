@@ -6,5 +6,3 @@ def print_matrix_integer(matrix=[[]]):
                 if row == 3 or row == 6 or row == 9 \
                 else print("{:d} ".format(row), end="")
         print("")
-
-
