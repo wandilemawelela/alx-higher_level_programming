@@ -1,3 +1,6 @@
 #!/usr/bin/python3
 def multiple_returns(sentence):
-    return (0, None) if sentence == "" else len(sentence), sentence[0]
+    if sentence == "":
+        return 0, None
+    else:
+        return len(sentence), sentence[0]
