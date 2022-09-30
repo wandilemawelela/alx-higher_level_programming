@@ -13,9 +13,12 @@ def roman_to_int(roman_string):
             "M": 1000
         }
         number = 0
-        roman_string = roman_string.replace("IV", "IIII").replace("IX", "VIIII")
-        roman_string = roman_string.replace("XL", "XXXX").replace("XC", "LXXXX")
-        roman_string = roman_string.replace("CD", "CCCC").replace("CM", "DCCCC")
+        roman_string = roman_string.replace("IV", "IIII")\
+            .replace("IX", "VIIII")
+        roman_string = roman_string.replace("XL", "XXXX")\
+            .replace("XC", "LXXXX")
+        roman_string = roman_string.replace("CD", "CCCC")\
+            .replace("CM", "DCCCC")
         for char in roman_string:
             number += romans[char]
         return number
