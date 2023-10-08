@@ -2,7 +2,7 @@
 
 def multiple_returns(sentence):
     if sentence is None:
-        sentence[0] = None
+        return None, None
     else:
         str_len = len(sentence)
         frst_chr = sentence[0]
