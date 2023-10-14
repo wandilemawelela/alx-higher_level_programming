@@ -11,7 +11,7 @@
 int check_cycle(listint_t *list)
 {
 	listint_t *slow = list;
-	listint_t *fast = list->next;
+	listint_t *fast = list;
 
 	/** Check if list is empty or has one node **/
 	if (list == NULL || list->next == NULL)
@@ -23,13 +23,13 @@ int check_cycle(listint_t *list)
 	/** Move slow pointer one step and fast pointer by two steps **/
 	while (fast != NULL && fast->next != NULL)
 	{
+		slow = slow->next;
+		fast = fast->next->next;
+
 		if (slow == fast)
 		{
 			return (1);
 		}
-
-		slow = slow->next;
-		fast = fast->next->next;
 	}
 	return (0);
 }
