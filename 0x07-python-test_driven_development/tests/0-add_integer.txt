@@ -1,8 +1,8 @@
-The ``Add Integer`` module
-============================
+The ''add_interger'' module
+===========================
 
-Using ``add_integer``
----------------------
+Using ''add_interger''
+______________________
 
 This is an example text file in reStructuredText format. First
 import ``add_integer`` from the ``Add Integer`` module:
