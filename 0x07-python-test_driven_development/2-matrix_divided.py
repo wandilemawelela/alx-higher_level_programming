@@ -9,6 +9,13 @@ of a matrix.
 
 
 def matrix_divided(matrix, div):
+    """ Returns the result of each member of the matrix list
+    divided by the div variable. Otherwises raises a TypeError
+    if member of the matrix is not an int or float or if each
+    row of the matrix does not have the same size. The fucntion
+    also returns a ZeroDivisionError if the value of div is 0.
+    """
+
     if not isinstance(matrix, list) or any(not isinstance(row, list)
                                            for row in matrix):
         raise TypeError("matrix must be a matrix (list of lists)"
