@@ -3,14 +3,14 @@
 This is the Rectangle module.
 
 This module provides a Rectangle class with the attributes
-width and height with default values of 0. The module also
-calculates the area and perimeter of the rectangle.
+width and height with default values of 0.
 """
 
 
 class Rectangle:
     """The Rectangle class with width and height attributes
-    and the public instance methods area and perimeter.
+    and includes the methods area, perimeter, print, repr,
+    and str.
     """
     def __init__(self, width=0, height=0):
         self.width = width
@@ -47,3 +47,16 @@ class Rectangle:
         if self.__width == 0 and self.__height == 0:
             return 0
         return (self.__width * 2) + (self.__height * 2)
+
+    def __str__(self):
+        total = ""
+        if self.__height == 0 or self.width == 0:
+            return total
+        for i in range(self.__height):
+            total += ("#" * self.__width)
+            if i is not self.__height - 1:
+                total += "\n"
+        return total
+
+    def __repr__(self):
+        return "Rectangle({:d}, {:d})".format(self.__width, self.__height)
