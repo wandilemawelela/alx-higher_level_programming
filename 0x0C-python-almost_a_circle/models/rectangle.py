@@ -31,15 +31,17 @@ class Rectangle(Base):
 
     @width.setter
     def width(self, value):
+        self.validate_positive_integer("width", value)
         self.__width = value
 
-    """Public getter and setter for width"""
+    """Public getter and setter for height"""
     @property
     def height(self):
-        return self__height
+        return self.__height
 
     @height.setter
     def height(self, value):
+        self.validate_positive_integer("height", value)
         self.__height = value
 
     """Public getter and setter for x"""
@@ -49,6 +51,7 @@ class Rectangle(Base):
 
     @x.setter
     def x(self, value):
+        self.validate_non_negative_integer("x", value)
         self.__x = value
 
     """Public getter and setter for y"""
@@ -58,4 +61,37 @@ class Rectangle(Base):
 
     @y.setter
     def y(self, value):
+        self.validate_non_negative_integer("y", value)
         self.__y = value
+
+    def validate_positive_integer(self, attribute_name, value):
+        """
+        Validate that the given value is a positive integer.
+
+        Parameters:
+        - attribute_name (str): The name of the attribute being validated.
+        - value: The value to be validated.
+        """
+        if not isinstance(value, int):
+            raise TypeError(f"{attribute_name} must be an integer.")
+        if value <= 0:
+            raise ValueError(f"{attribute_name} must be > 0.")
+
+    def validate_non_negative_integer(self, attribute_name, value):
+        """
+        Validate that the given value is a non-negative integer.
+
+        Parameters:
+        - attribute_name (str): The name of the attribute being validated.
+        - value: The value to be validated.
+        """
+        if not isinstance(value, int):
+            raise TypeError(f"{attribute_name} must be an integer.")
+        if value < 0:
+            raise ValueError(f"{attribute_name} must be >= 0.")
+
+    def area(self):
+        """
+        Public area method to return the area value of the Rectangle instance.
+        """
+        return self.__width * self.__height
