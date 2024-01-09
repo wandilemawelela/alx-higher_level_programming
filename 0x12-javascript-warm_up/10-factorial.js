@@ -2,13 +2,13 @@
 
 const num = process.argv[2];
 
-const computeFactorial = (n) => {
-  if (isNaN(n)) {
+const computeFactorial = (num) => {
+  if (isNaN(num)) {
     return 1;
-  } else if (n === 0 || n === 1) {
+  } else if (num === 0 || num === 1) {
     return 1;
   } else {
-    return n * computeFactorial(n - 1);
+    return num * computeFactorial(num - 1);
   }
 };
 
