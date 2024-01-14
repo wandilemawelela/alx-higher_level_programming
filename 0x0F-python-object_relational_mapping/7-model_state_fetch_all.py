@@ -12,11 +12,16 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from model_state import Base, State
 
+
 def list_states(username, password, database_name):
     # Define the engine to connect to the MySQL server
-     engine = create_engine("mysql+mysqldb://{}:{}@localhost/{}"
-                           .format(sys.argv[1], sys.argv[2], sys.argv[3]),
-                           pool_pre_ping=True)
+    engine = create_engine("mysql+mysqldb://{}:\
+            {}@localhost/{}".format(
+                sys.argv[1],
+                sys.argv[2],
+                sys.argv[3]),
+            pool_pre_ping=True
+            )
     # Create a session
     Session = sessionmaker(bind=engine)
     session = Session()
@@ -28,10 +33,12 @@ def list_states(username, password, database_name):
     for state in states:
         print(f"{state.id}: {state.name}")
 
+
 if __name__ == "__main__":
     # Check if the correct number of arguments is provided
     if len(sys.argv) != 4:
-        print("Usage: python list_states.py <username> <password> <database_name>")
+        print("Usage: python list_states.py <username> <password> \
+                <database_name>")
         sys.exit(1)
 
     # Extract arguments
@@ -39,4 +46,3 @@ if __name__ == "__main__":
 
     # Call the function to list states
     list_states(username, password, database_name)
-
