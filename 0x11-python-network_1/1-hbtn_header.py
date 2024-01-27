@@ -5,22 +5,12 @@ and displays the X-Request-Id value
 from the header.
 """
 
-if __name__ == '__main__':
-    import urllib.request
-    import sys
+import sys
+import urllib.request
 
-    if len(sys.argv) != 2:
-        print("Usage: python script.py <URL>")
-        sys.exit(1)
-
+if __name__ == "__main__":
     url = sys.argv[1]
 
-    try:
-        with urllib.request.urlopen(url) as response:
-            x_request_id = response.headers.get('X-Request-Id')
-            if x_request_id:
-                print(x_request_id)
-            else:
-                print("X-Request-Id header not found in the response.")
-    except urllib.error.URLError as e:
-        print("Error fetching the URL:", e)
+    request = urllib.request.Request(url)
+    with urllib.request.urlopen(request) as response:
+        print(dict(response.headers).get("X-Request-Id"))
